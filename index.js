@@ -1,7 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const app = express();
-require("dotenv").config();
 
 const { initializeDatabase } = require("./db/db.connect");
 const { Student } = require("./models/students.model");
