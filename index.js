@@ -20,7 +20,7 @@ app.get("/students", async (req, res) => {
     const students = await Student.find();
     res.json(students);
   } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -61,7 +61,7 @@ app.post("/students/:id", async (req, res) => {
     res.status(200).json(updatedStudent);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -81,7 +81,7 @@ app.delete("/students/:id", async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
