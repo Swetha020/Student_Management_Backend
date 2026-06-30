@@ -39,7 +39,7 @@ app.post("/students", async (req, res) => {
     await student.save();
     res.status(201).json(student);
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
